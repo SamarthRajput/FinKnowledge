@@ -1,0 +1,22 @@
+run postgres image to postgres server using command 
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+then the connection string will be
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=mysecretpassword"
+  }
+}
+
+to create a dotnet project run the command 
+dotnet new webapi -o <folder_name>
+eg dotnet new webapi -o backend
+
+to start the server we use command 
+dotnet watch run
+
+to migrate the database we need to run the command 
+dotnet ef migrations add migration_Name
+eg dotnet ef migrations add init
+
+to update the database we need to run the command
+dotnet ef database update 
