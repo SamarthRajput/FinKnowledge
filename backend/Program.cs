@@ -1,4 +1,6 @@
 using backend.Data;
+using backend.Interfaces;
+using backend.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +16,7 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
 });
 // adding controllers
 builder.Services.AddControllers();
-
+builder.Services.AddScoped<IStockRepository, StockRepository>();
 
 // app is going to control all the http request 
 var app = builder.Build();

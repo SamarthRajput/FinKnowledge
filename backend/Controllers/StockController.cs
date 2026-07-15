@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.Data;
 using backend.Dtos.Stock;
+using backend.Interfaces;
 using backend.Mappers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,8 +18,10 @@ namespace backend.Controllers
         // security purpose
         // It declares a private field to hold your database context, so your controller (or service) can use it across all its methods without recreating it each time
         private readonly ApplicationDBContext _context;
-        public StockController(ApplicationDBContext context)
+        private readonly IStockRepository _stockRepo;
+        public StockController(ApplicationDBContext context, IStockRepository stockRepo)
         {   
+            _stockRepo = stockRepo;
             _context = context;
         }
 
@@ -29,8 +32,9 @@ namespace backend.Controllers
             // get all the stocks from database
             // defered execution, it will return a list object
             // Select is dotnet version of map, we use in javascript 
-            var stocks = await _context.Stock.ToListAsync();
+            // var stocks = await _context.Stock.ToListAsync();
             
+            var stocks = await _stockRepo.GetAllAsync();
             var stockDto = stocks.Select(s => s.ToStockDto());
             
             return Ok(stocks);
