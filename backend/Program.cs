@@ -12,7 +12,8 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     // it will connect to our DB Server, we need to add our DB Connection String
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-
+// adding controllers
+builder.Services.AddControllers();
 
 
 // app is going to control all the http request 
@@ -26,5 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();

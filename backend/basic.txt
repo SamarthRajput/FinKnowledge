@@ -20,3 +20,10 @@ eg dotnet ef migrations add init
 
 to update the database we need to run the command
 dotnet ef database update 
+
+models are database models 
+Controllers are api controllers, we define our apis in Controllers
+DTOs stands for data transfer object 
+Mappers exist to convert data between different layers of your application — typically between your database entities (like Stock) and the objects you actually expose through your API (DTOs) — so those layers stay decoupled and don't directly depend on each other's internal structure.
+
+We have mapped StockDto with the mapper and StockDto with the controllers
