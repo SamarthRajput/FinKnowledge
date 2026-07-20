@@ -14,9 +14,16 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     // it will connect to our DB Server, we need to add our DB Connection String
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+// we are doing this to prevent object cycles 
+// object cycles are a part of entity framework
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 // adding controllers
 builder.Services.AddControllers();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 // app is going to control all the http request 
 var app = builder.Build();

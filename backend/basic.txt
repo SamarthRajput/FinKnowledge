@@ -30,3 +30,5 @@ We have mapped StockDto with the mapper and StockDto with the controllers
 Interfaces dont really exists, Interfaces are only used to plugin with the repository
 repository pattern means taking out all the database calls from controllers into function that are present in our repository
 repository is existed only for database calls
+
+we will use include() function to get all the comments on the our stock entity, means all the comments present on that stockId

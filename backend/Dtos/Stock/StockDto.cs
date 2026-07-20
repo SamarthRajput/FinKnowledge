@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Dtos.Comment;
 
 // DTOS are used to give particular response back to the frontend
 // for example to the user we just need to return email or his/her password are login so we will use dto there
@@ -22,5 +23,6 @@ namespace backend.Dtos.Stock
         public string Industry { get; set; } = string.Empty;
         public long MarketCap { get; set; }
         
+        public List<CommentDto> Comments{ get; set; }
     }
 }

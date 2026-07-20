@@ -15,10 +15,13 @@ namespace backend.Models
 
 
 
+        // Navigation Property means, creating a relationship, one to many relationship
+        // Adding Comments to a particular stock by the user
         // There are many to form 1 to many relationship, but we are doing using convention
         // Convention means entity framework 
-        public int? MyProperty { get; set; }
+        // public int? MyProperty { get; set; }
         // // Navigation property, it help us to navigate to our models 
+        public int? StockId { get; set; }
         public Stock? Stock { get; set; }
     }
 }
