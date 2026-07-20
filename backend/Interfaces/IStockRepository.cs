@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using backend.Dtos.Stock;
 using backend.Models;
 
 namespace backend.Interfaces
@@ -9,5 +10,14 @@ namespace backend.Interfaces
     public interface IStockRepository
     {
         Task<List<Stock>>GetAllAsync();
+
+        // ? bcz our GetById will have FirstOrDefault in it and firstOrDefault can be null
+        Task<Stock?> GetByIdAsync(int id);
+
+        Task<Stock>CreateAsync(Stock stockModel);
+
+        Task<Stock?>UpdateAsync(int id, UpdateStockRequestDto stockDto);
+
+        Task<Stock?>DeleteAsync(int id);
     }
 }
