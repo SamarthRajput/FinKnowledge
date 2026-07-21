@@ -71,7 +71,7 @@ namespace backend.Controllers
             // now we are going to map it with the commentDto using mapper
             var commentModel = commentDto.ToCommentFromCreate(stockId);
             await _commentRepo.CreateAsync(commentModel);
-            return CreatedAtAction(nameof(GetById), new { id = commentModel }, commentModel.ToCommentDto());
+            return CreatedAtAction(nameof(GetById), new { id = commentModel.Id }, commentModel.ToCommentDto());
         }   
 
         [HttpDelete]
@@ -89,6 +89,20 @@ namespace backend.Controllers
                 return NotFound("Comment does not exists");
             }
             return Ok(commentModel);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateCommentRequestDto UpdateDto)
+        {
+            // As in Database call we are using CommentModel, so we can pass our Dto, so we need to create a Mapper for them
+            var comment = await _commentRepo. UpdateAsync(id, UpdateDto.ToCommentFromUpdate());
+            if(comment == null)
+            {
+                return NotFound("Comment not found");
+            }
+            return Ok(comment.ToCommentDto());
+
         }
     }
 }

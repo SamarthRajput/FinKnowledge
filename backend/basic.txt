@@ -32,3 +32,7 @@ repository pattern means taking out all the database calls from controllers into
 repository is existed only for database calls
 
 we will use include() function to get all the comments on the our stock entity, means all the comments present on that stockId
+
+We are sorting using functions
+AsQueryable(); or OrderByDescending or OrderBy
+after these function we have to use ToList(); function
