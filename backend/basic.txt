@@ -35,4 +35,4 @@ we will use include() function to get all the comments on the our stock entity, 
 
 We are sorting using functions
 AsQueryable(); or OrderByDescending or OrderBy
-after these function we have to use ToList(); function
+after these function we have to use ToList(); function 

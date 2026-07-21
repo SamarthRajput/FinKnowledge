@@ -23,5 +23,9 @@ namespace backend.Data
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Comment> Comments { get; set; }
 
+        public DbSet<ExcelUpload> ExcelUploads { get; set; }
+        public DbSet<ExcelRow> ExcelRows { get; set; }
+        public DbSet<ExcelCells> ExcelCells { get; set; }
+
     }
 }
