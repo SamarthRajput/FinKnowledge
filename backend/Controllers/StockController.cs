@@ -29,6 +29,10 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             // get all the stocks from database
             // defered execution, it will return a list object
             // Select is dotnet version of map, we use in javascript 
@@ -43,9 +47,13 @@ namespace backend.Controllers
         // Get Stock by Id
         // will return one actual item
         // model binding will extract this id 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             // var stock = await _context.Stock.FindAsync(id);
             // with stockrepository function
             var stock = await _stockRepo.GetByIdAsync(id);
@@ -63,6 +71,10 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStockRequestDto stockDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var stockModel = stockDto.ToStockFromCreateDTO();
             // await _context.Stock.AddAsync(stockModel);
             // // Save changes are required to save all the changes
@@ -76,10 +88,14 @@ namespace backend.Controllers
 
         // Update Stock by Id
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:int}")]
         // Each type of request, each Dto is going to be different
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             // var stockModel = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
             var stockModel = await _stockRepo.UpdateAsync(id, updateDto);
 
@@ -93,9 +109,13 @@ namespace backend.Controllers
 
         // Delete Stock By Id
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             // var stockModel = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
             var stockModel = await _stockRepo.DeleteAsync(id);
 
