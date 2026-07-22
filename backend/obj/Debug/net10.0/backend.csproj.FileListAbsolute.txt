@@ -165,3 +165,11 @@
 /Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/Newtonsoft.Json.Bson.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/ClosedXML.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/ClosedXML.Parser.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/DocumentFormat.OpenXml.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/DocumentFormat.OpenXml.Framework.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/ExcelNumberFormat.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/RBush.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/SixLabors.Fonts.dll
+/Users/neetarajput/Desktop/Projects/FinKnowledge/backend/bin/Debug/net10.0/System.IO.Packaging.dll

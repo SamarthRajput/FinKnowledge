@@ -19,7 +19,9 @@ namespace backend.Mappers
                 TotalRows = upload.Rows.Count,
                 Data = upload.Rows
                     .OrderBy(r => r.RowNumber)
-                    .Select(r => r.Cells.ToDictionary(c => c.ColumnName, c => c.Value))
+                    .Select(r => r.Cells
+                        .GroupBy(c => c.ColumnName)
+                        .ToDictionary(g => g.Key, g => g.First().Value))
                     .ToList()
             };
         }

@@ -24,6 +24,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddControllers();
 builder.Services.AddScoped<IStockRepository, StockRepository>();
 builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IExcelRepository, ExcelRepository>();
 
 // app is going to control all the http request 
 var app = builder.Build();
