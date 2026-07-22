@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using backend.Dtos.Stock;
+using backend.Helpers;
 using backend.Models;
 
 namespace backend.Interfaces
 {
     public interface IStockRepository
     {
-        Task<List<Stock>>GetAllAsync();
+        Task<List<Stock>>GetAllAsync(QueryObject query);
 
         // ? bcz our GetById will have FirstOrDefault in it and firstOrDefault can be null
         Task<Stock?> GetByIdAsync(int id);

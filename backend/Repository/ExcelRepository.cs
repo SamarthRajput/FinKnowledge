@@ -49,7 +49,7 @@ namespace backend.Repository
 
             using var workbook = new XLWorkbook(stream);
             var worksheet = workbook.Worksheets.First();
-            var allRows = worksheet.RangeUsed().RowsUsed().ToList();
+            var allRows = worksheet.RangeUsed()!.RowsUsed().ToList();
 
             var headerRow = allRows[0];
             var headers = headerRow.Cells().Select(c => c.Value.ToString()).ToList();
